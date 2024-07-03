@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import "cocoon";
+
  * {
   font-family: 'Montserrat', sans-serif;
   margin: 0;

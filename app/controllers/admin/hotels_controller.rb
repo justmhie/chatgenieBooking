@@ -10,6 +10,7 @@ module Admin
 
     def new
       @hotel = Hotel.new
+      @hotel.room_types.build
     end
 
     def create
@@ -22,6 +23,7 @@ module Admin
     end
 
     def edit
+      @hotel = Hotel.find(params[:id])
     end
 
     def update
@@ -34,7 +36,7 @@ module Admin
 
     def destroy
       @hotel.destroy
-      redirect_to admin_hotels_path, notice: 'Hotel listing was successfully deleted.'
+      redirect_to admin_dashboard_index_path, notice: 'Hotel listing was successfully deleted.'
     end
 
     private
@@ -44,7 +46,7 @@ module Admin
     end
 
     def hotel_params
-      params.require(:hotel).permit(:hotel_name, :description, :location, :contact_details, :amenities, :photo_gallery)
+      params.require(:hotel).permit(:hotel_name, :description, :location, :contact_details, :amenities)
     end
   end
 end

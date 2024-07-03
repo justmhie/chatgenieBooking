@@ -8,6 +8,7 @@ mateo = User.create(first_name: 'Mateo', last_name: 'Lazo', email: 'mateo@email.
 julian = User.create(first_name: 'Julian', last_name: 'Jones', email: 'julian@email.com', password: 'Julian1', password_confirmation: 'Julian1')
 freida = User.create(first_name: 'Freida', last_name: 'Gray', email: 'freida@email.com', password: 'Freida1', password_confirmation: 'Freida1', role: 'admin')
 
+puts 'Users created successfully.'
 
 # Sample Hotels
 hotel1 = Hotel.create!(
@@ -15,8 +16,7 @@ hotel1 = Hotel.create!(
   description: 'A luxurious hotel with a beautiful view of the city skyline.',
   location: '123 Main Street, Metropolis',
   contact_details: 'contact@grandpalace.com, +123456789',
-  amenities: 'Free WiFi, Swimming Pool, Spa, Gym',
-  photo_gallery: 'https://digital.ihg.com/is/image/ihg/independent--sphc--vienna-7550939683-4x3'
+  amenities: 'Free WiFi, Swimming Pool, Spa, Gym'
 )
 
 hotel2 = Hotel.create!(
@@ -24,8 +24,7 @@ hotel2 = Hotel.create!(
   description: 'A serene getaway by the sea with private beaches.',
   location: '456 Beach Avenue, Seaside',
   contact_details: 'info@coastalretreat.com, +987654321',
-  amenities: 'Private Beach, Water Sports, All-inclusive',
-  photo_gallery: 'https://www.kayak.com.ph/rimg/kimg/d1/4b/5bd2057e1e8927ce.jpg?width=1366&height=768&crop=true'
+  amenities: 'Private Beach, Water Sports, All-inclusive'
 )
 
 hotel3 = Hotel.create!(
@@ -33,8 +32,7 @@ hotel3 = Hotel.create!(
   description: 'Charming inn located in the mountains with breathtaking views.',
   location: '789 Mountain Road, Highlands',
   contact_details: 'stay@mountainview.com, +192837465',
-  amenities: 'Hiking Trails, Fireplace, Free Breakfast',
-  photo_gallery: 'https://www.kayak.com.ph/rimg/himg/c7/2b/6a/leonardo-3067847-EXTERIOR_O-954588.jpg?width=1366&height=768&crop=true'
+  amenities: 'Hiking Trails, Fireplace, Free Breakfast'
 )
 
 # Sample Room Types
@@ -71,8 +69,8 @@ RoomType.create!(
   price_per_night: 100.00
 )
 
-
 # Sample Bookings
+# Note: Ensure user1, user2, and user3 are defined properly in your actual code
 Booking.create!(
   user: user1,
   hotel: hotel1,

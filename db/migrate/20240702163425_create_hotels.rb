@@ -6,7 +6,7 @@ class CreateHotels < ActiveRecord::Migration[7.0]
       t.string :location
       t.string :contact_details
       t.text :amenities
-      t.text :photo_gallery
+      #t.text :photo_gallery
 
       t.timestamps
     end

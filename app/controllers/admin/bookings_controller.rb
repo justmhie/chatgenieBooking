@@ -8,13 +8,18 @@ module Admin
       # Ensure @booking is set by set_booking before_action
     end
 
+    def confirm
+    @booking = Booking.find(params[:id])
+    if @booking.update(status: 'confirmed')
+      redirect_to admin_booking_path(@booking), notice: 'Booking successfully confirmed.'
+    else
+      redirect_to admin_booking_path(@booking), alert: 'Failed to confirm booking.'
+    end
+  end
+
     def cancel
-      @booking = Booking.find(params[:id])
-      if @booking.update(status: 'cancelled')
-        redirect_to admin_booking_path(@booking), notice: 'Booking successfully cancelled.'
-      else
-        redirect_to admin_booking_path(@booking), alert: 'Failed to cancel booking.'
-      end
+      @booking.update(status: :cancelled)
+      redirect_to admin_booking_path(@booking), notice: 'Booking cancelled successfully.'
     end
 
     private

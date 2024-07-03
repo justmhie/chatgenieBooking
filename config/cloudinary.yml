@@ -1,0 +1,12 @@
+development:
+  cloud_name: dl7a9r3nm
+  api_key: 928133268229863
+  api_secret: ICCyj5ZnHzJg9DMpllDgcjlbRGo
+production:
+  cloud_name: dl7a9r3nm
+  api_key: 928133268229863
+  api_secret: ICCyj5ZnHzJg9DMpllDgcjlbRGo
+test:
+  cloud_name: dl7a9r3nm
+  api_key: 928133268229863
+  api_secret: ICCyj5ZnHzJg9DMpllDgcjlbRGo

@@ -1,23 +1,50 @@
-<div class="hotel-form">
-  <div class="container">
-    <%= form_with model: @hotel, local: true do |f| %>
-      <div class="field">
-        <%= f.label :hotel_name %>
-        <%= f.text_field :hotel_name %>
-      </div>
-      <div class="field">
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-      </div>
-      <div class="field">
-        <%= f.label :location %>
-        <%= f.text_field :location %>
-      </div>
-      <div class="field">
-        <%= f.label :contact_details %>
-        <%= f.text_area :contact_details %>
-      </div>
-      <div class="field">
-        <%= f.label :amenities %>
-        <%= f.text_area :amenities %>
-     
+<!-- /app/views/admin/hotels/_form.html.erb -->
+
+<%= form_with(model: @hotel, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :hotel_name %>
+    <%= f.text_field :hotel_name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_details %>
+    <%= f.text_area :contact_details %>
+  </div>
+  <div class="field">
+    <%= f.label :amenities %>
+    <%= f.text_area :amenities %>
+  </div>
+
+  <!-- Nested attributes for room types -->
+  <%= f.fields_for :room_types do |room_type_fields| %>
+    <div class="nested-fields">
+      <%= room_type_fields.label :name, "Room Type Name" %>
+      <%= room_type_fields.text_field :name %>
+      
+      <%= room_type_fields.label :description, "Room Type Description" %>
+      <%= room_type_fields.text_area :description %>
+      
+      <%= room_type_fields.label :capacity, "Capacity" %>
+      <%= room_type_fields.number_field :capacity %>
+      
+      <%= room_type_fields.label :price_per_night, "Price per Night" %>
+      <%= room_type_fields.number_field :price_per_night, step: 0.01 %>
+      
+      <%= room_type_fields.check_box :_destroy, class: 'remove-room-type' %>
+      <%= room_type_fields.label :_destroy, 'Remove' %>
+    </div>
+  <% end %>
+
+
+
+  <div class="actions">
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>

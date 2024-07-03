@@ -36,7 +36,12 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # config.active_storage.service = :local
+  config.active_storage.service = :cloudinary
+  # config/environments/development.rb or config/environments/production.rb
+  config.active_storage.service_urls_expire_in = 1.hour
+  # Example of changing file size limit for development environment
+  config.active_storage.variant_processor = :mini_magick
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     # Admin Booking Management
     resources :bookings, only: [:index, :show, :destroy] do
       member do
-        patch :cancel
+        delete 'cancel'
       end
     end
 

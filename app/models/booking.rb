@@ -10,6 +10,10 @@ class Booking < ApplicationRecord
   enum status: { pending: 0, confirmed: 1, cancelled: 2 }
 
   private
+  def set_default_status
+    self.status ||= :pending
+  end
+  
   def check_dates
       if check_in_date.present? && check_out_date.present? && check_in_date >= check_out_date
         errors.add(:check_out_date, "must be after the check-in date")
