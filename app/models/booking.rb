@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   validate :check_dates
 
   enum status: { pending: 0, confirmed: 1, cancelled: 2 }
-
+  
   private
   def set_default_status
     self.status ||= :pending

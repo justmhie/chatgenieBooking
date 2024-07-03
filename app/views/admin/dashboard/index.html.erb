@@ -19,7 +19,7 @@
               <td><%= hotel.location %></td>
               <td>
                 <%= link_to "Edit", edit_admin_hotel_path(hotel), class: "edit-btn" %>
-                <%= link_to "Delete", admin_hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn" %>
+               <%= link_to "Delete", admin_hotel_path(hotel), method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %>
               </td>
             </tr>
           <% end %>

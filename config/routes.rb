@@ -21,14 +21,14 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index', as: :dashboard
 
     # Admin Hotel Management
-    resources :hotels do
+    resources :hotels, except: [:show] do
       resources :room_types, only: [:new, :create, :edit, :update, :destroy]
     end
 
     # Admin Booking Management
     resources :bookings, only: [:index, :show, :destroy] do
       member do
-        delete 'cancel'
+        patch 'cancel'
       end
     end
 

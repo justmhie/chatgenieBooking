@@ -2,7 +2,7 @@
 module Admin
   class HotelsController < ApplicationController
     before_action :authenticate_admin # Ensure admin authentication
-    before_action :set_hotel, only: [:show, :edit, :update, :destroy]
+    before_action :set_hotel, only: [:edit, :update, :destroy]
 
     def index
       @hotels = Hotel.all
@@ -35,8 +35,12 @@ module Admin
     end
 
     def destroy
-      @hotel.destroy
-      redirect_to admin_dashboard_index_path, notice: 'Hotel listing was successfully deleted.'
+      @hotel = Hotel.find(params[:id])
+      if @hotel.destroy
+        redirect_to admin_dashboard_path, notice: 'Hotel listing was successfully deleted.'
+      else
+        redirect_to admin_dashboard_path, alert: 'Failed to delete the hotel listing.'
+      end
     end
 
     private

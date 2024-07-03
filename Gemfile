@@ -46,6 +46,7 @@ gem "sassc-rails", "~> 2.1.2"
 gem "image_processing", "~> 1.2"
 gem 'cloudinary'
 gem 'cocoon'
+gem 'jquery-rails'
 
 # Add RSpec for testing
 gem "rspec-rails", "~> 5.0.2"
