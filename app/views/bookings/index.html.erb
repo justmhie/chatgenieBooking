@@ -1,0 +1,23 @@
+<h1>Bookings</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Booking ID</th>
+      <th>Hotel</th>
+      <th>Room Type</th>
+      <th>Check-in Date</th>
+      <th>Check-out Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.id %></td>
+        <td><%= booking.hotel.hotel_name %></td>
+        <td><%= booking.room_type.name %></td>
+        <td><%= booking.check_in_date %></td>
+        <td><%= booking.check_out_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

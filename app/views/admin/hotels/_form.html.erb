@@ -1,0 +1,23 @@
+<div class="hotel-form">
+  <div class="container">
+    <%= form_with model: @hotel, local: true do |f| %>
+      <div class="field">
+        <%= f.label :hotel_name %>
+        <%= f.text_field :hotel_name %>
+      </div>
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div>
+      <div class="field">
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+      </div>
+      <div class="field">
+        <%= f.label :contact_details %>
+        <%= f.text_area :contact_details %>
+      </div>
+      <div class="field">
+        <%= f.label :amenities %>
+        <%= f.text_area :amenities %>
+     

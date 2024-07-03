@@ -1,0 +1,32 @@
+<div class="booking-new">
+  <div class="container">
+    <h1>Book a Room at <%= @hotel.hotel_name %></h1>
+    <%= form_with(model: @booking, url: hotel_bookings_path(@hotel), local: true) do |f| %>
+      <%= f.hidden_field :hotel_id, value: @hotel.id %>
+      <div class="field">
+        <%= f.label :check_in_date %>
+        <%= f.date_field :check_in_date %>
+      </div>
+      <div class="field">
+        <%= f.label :check_out_date %>
+        <%= f.date_field :check_out_date %>
+      </div>
+      <div class="field">
+        <%= f.label :room_type_id, "Room Type" %>
+        <%= f.collection_select :room_type_id, @hotel.room_types, :id, :name %>
+      </div>
+      <%= f.submit "Book Now", class: "book-now-btn" %>
+    <% end %>
+  </div>
+  <% if @booking.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+    <ul>
+    <% @booking.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+</div>

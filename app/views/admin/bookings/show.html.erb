@@ -1,0 +1,8 @@
+<div class="booking-details">
+  <h2>Booking Details</h2>
+  <p><strong>Hotel:</strong> <%= @booking.hotel.hotel_name %></p>
+  <p><strong>Customer:</strong> <%= @booking.user.name %></p>
+  <p><strong>Check-in Date:</strong> <%= @booking.check_in_date %></p>
+  <p><strong>Check-out Date:</strong> <%= @booking.check_out_date %></p>
+  <p><strong>Status:</strong> <%= @booking.status.capitalize %></p>
+</div>

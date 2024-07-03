@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatGenie Booking</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="container">
+
+        <div class="nav">
+          <% if current_user %>
+            <ul>
+              <li><%= current_user.email %></li>
+              <li><%= button_to "Log out", logout_path, method: "delete", class: 'btn btn-small' %></li>
+            </ul>
+          <% else %>
+            <ul>
+              <li><%= link_to "Log in", login_path %></a></li>
+              <li><%= link_to "Sign up", signup_path %></a></li>
+            </ul>
+          <% end %>
+        </div>
+    
+      <div class="logo">
+      </div>
+    
+    </div>
+    <%= yield %>
+  </body>
+</html>

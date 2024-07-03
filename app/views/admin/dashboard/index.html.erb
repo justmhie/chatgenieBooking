@@ -1,0 +1,86 @@
+  <div class="admin-dashboard">
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+      <div class="hotel-listings">
+        <h2>Hotel Listings</h2>
+        <%= link_to "New Hotel Listing", new_admin_hotel_path, class: "new-btn" %>
+        <table>
+          <thead>
+            <tr>
+              <th>Hotel Name</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @hotels.each do |hotel| %>
+              <tr>
+                <td><%= hotel.hotel_name %></td>
+                <td><%= hotel.location %></td>
+                <td>
+                  <%= link_to "Edit", edit_admin_hotel_path(hotel), class: "edit-btn" %>
+                  <%= link_to "Delete", admin_hotel_path(hotel), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="bookings-list">
+        <h2>Bookings</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Hotel</th>
+              <th>Customer</th>
+              <th>Check-in Date</th>
+              <th>Check-out Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @bookings.each do |booking| %>
+              <tr>
+                <td><%= booking.hotel.hotel_name %></td>
+                <td><%= booking.user.name %></td>
+                <td><%= booking.check_in_date %></td>
+                <td><%= booking.check_out_date %></td>
+                <td><%= booking.status %></td>
+                <td>
+                  <%= link_to "View", admin_booking_path(booking), class: "view-btn" %>
+                  <%= link_to "Cancel", cancel_admin_booking_path(booking), method: :patch, data: { confirm: "Are you sure you want to cancel this booking?" }, class: "cancel-btn" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="user-management">
+        <h2>Users</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+                <td>
+                  <%= link_to "Edit", edit_admin_user_path(user), class: "edit-btn" %>
+                  <%= link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-btn" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

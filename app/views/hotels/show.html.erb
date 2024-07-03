@@ -1,0 +1,38 @@
+<div class="hotel-show">
+  <div class="container">
+    <h1><%= @hotel.hotel_name %></h1>
+    <div class="hotel-details">
+      <p><strong>Description:</strong> <%= @hotel.description %></p>
+      <p><strong>Location:</strong> <%= @hotel.location %></p>
+      <p><strong>Contact:</strong> <%= @hotel.contact_details %></p>
+      <p><strong>Amenities:</strong> <%= @hotel.amenities %></p>
+      <div class="img_container">
+        <%= image_tag @hotel.photo_gallery %>
+      </div>
+    </div>
+    <div class="room-types">
+      <h2>Available Room Types</h2>
+      <% @hotel.room_types.each do |room_type| %>
+        <div class="room-type">
+          <h3><%= room_type.name %></h3>
+          <p><strong>Description:</strong> <%= room_type.description %></p>
+          <p><strong>Capacity:</strong> <%= room_type.capacity %> people</p>
+          <p><strong>Price per night:</strong> <%= number_to_currency(room_type.price_per_night) %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="reviews">
+      <h2>Reviews</h2>
+      <% @hotel.reviews.each do |review| %>
+        <div class="review">
+          <p><strong>Rating:</strong> <%= review.rating %>/5</p>
+          <p><strong>Comment:</strong> <%= review.comment %></p>
+          <p><strong>Date:</strong> <%= review.date %></p>
+        </div>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <%= link_to "Book Now", new_booking_path(hotel_id: @hotel.id), class: "book-now-btn" %>
+    <% end %>
+  </div>
+</div>

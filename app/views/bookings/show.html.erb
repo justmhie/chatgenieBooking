@@ -1,0 +1,11 @@
+<div class="booking-show">
+  <div class="container">
+    <h1>Booking Details</h1>
+    <p><strong>Hotel:</strong> <%= @booking.hotel.hotel_name %></p>
+    <p><strong>Check-in Date:</strong> <%= @booking.check_in_date %></p>
+    <p><strong>Check-out Date:</strong> <%= @booking.check_out_date %></p>
+    <p><strong>Room Type:</strong> <%= @booking.room_type.name %></p>
+    <p><strong>Status:</strong> <%= @booking.status.capitalize %></p>
+    <%= link_to "Back to Hotels", hotels_path, class: "back-btn" %>
+  </div>
+</div>

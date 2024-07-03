@@ -1,0 +1,11 @@
+<div class="hotels">
+  <div class="container">
+    <% @hotels.each do |hotel| %>
+      <div class="hotel">
+        <h2><%= hotel.hotel_name %></h2>
+        <img class="arrow" src="https://content.codecademy.com/courses/rails-auth/img/arrow.svg" width="80" height="40">
+        <p><%= link_to "View Hotel", hotel_path(hotel) %></p>
+        <%= image_tag hotel.photo_gallery, class: "hotel-image", alt: hotel.hotel_name %>
+    <% end %>
+  </div>
+</div>
